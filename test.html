@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculator</title>
+</head>
+<body>
+	<input type="number" placeholder="0" id="ndisplay">
+	<br>
+
+
+	<button onclick="Number(this)">1</button>
+	<button onclick="Number(this)">2</button>
+	<button onclick="Number(this)">3</button>
+	<button onclick="Number(this)">4</button>
+	<button onclick="Number(this)">5</button>
+	<br>
+	<button onclick="Number(this)">6</button>
+	<button onclick="Number(this)">7</button>
+	<button onclick="Number(this)">8</button>
+	<button onclick="Number(this)">9</button>
+	<button onclick="Number(this)">0</button>
+	<br>
+	<button id="nplus" onclick="addition()">+</button>
+	<button id="nminus" onclick="subtract()">-</button>
+	<button id="ntimes" onclick="multiply()">*</button>
+	<button id="ndivide" onclick="divide()">/</button>
+	<button id="nresult" onclick="equals()">=</button>
+
+	<script type="text/javascript"> 
+		let n = document.getElementById('ndisplay');
+		let numberHolder;
+		let optr;
+
+
+		function Number(e){
+			n.value += e.innerHTML;
+		}
+
+		function addition() {
+			optr = "+";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function subtract() {
+			optr = "-";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function multiply() {
+			optr = "*";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function divide() {
+			optr = "/";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function equals(){
+			switch (optr){
+				case"+":
+					n.value = numberHolder + parseInt(n.value);
+					break;
+
+				case"-":
+					n.value = numberHolder - parseInt(n.value);
+					break;
+
+				case"*":
+					n.value = numberHolder * parseInt(n.value);
+					break;
+
+				case"/":
+					n.value = numberHolder / parseInt(n.value);
+					break;
+
+				default:
+					console.log('no operator defined');
+					break;
+			}
+		}
+	</script>
+</body>
+</html>
